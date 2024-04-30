@@ -1,0 +1,519 @@
+:root {
+  --rotate: 15s;
+  --posX: 0;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#page {
+  position: relative;
+}
+
+main {
+  overflow: hidden;
+}
+
+/* BANNIERE */
+
+.banner {
+  position: relative;
+  object-fit: contain;
+  height: 800px;
+  background-image: none;
+}
+
+.banner__background {
+  z-index: -2;
+  opacity: 1;
+  left: auto !important;
+  max-width: 100%;
+  overflow: hidden;  
+}
+
+.banner__video {  
+  z-index: 1;
+  opacity: 1;
+  left: auto !important;
+}
+
+.banner__background, 
+.banner__video {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  min-width: 1440px !important;  
+  animation: move-down 2s 300ms both;
+}
+
+.banner__logo {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  opacity: 1;
+  animation: move-up 3s 300ms both, float 5s 2s infinite ease-in-out;  
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 920px    */
+/*  **********************************  */
+@media all and (max-width: 920px) {
+  .banner img {
+  width: 70%;
+}
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+.banner  {
+  min-height: 600px !important;
+  height: auto !important;
+  width: 100vw
+}
+
+.banner .banner__video {
+  opacity: 0; 
+}
+
+.banner__background {
+  opacity: 1;
+  min-width: 1200px !important;
+}
+
+.banner img {
+  width: 80%;
+}
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 580px    */
+/*  **********************************  */
+@media all and (max-width: 580px) {
+.banner  {
+  min-height: 400px !important;
+  /* height: 400px !important; */
+}
+
+.banner .banner__video {
+  opacity: 0; 
+}
+
+.banner__background {
+  opacity: 1;
+  min-width: 900px !important;
+}
+}
+
+
+/* MOUVEMENTS Des TITRES  */
+.mouve-up {
+  animation: move-up 1.2s 300ms both;  
+}
+
+/* glissement vers le haut avec augmentation de l'opacité */
+@keyframes move-up {
+  0% {
+    transform: translateY(600px);
+    opacity: 0;
+  } 
+  100% {
+    transform: translateY(0);  
+  }
+}
+
+/* glissement vers le bas avec agmentation de l'opacité */
+@keyframes move-down {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }  
+  100% {
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+
+/* FLOTTEMENT LOGO */
+@keyframes float {
+  0% {
+    transform: translate3d(6px,6px,0);
+  }
+  13% {
+    transform: translate3d(0px,6px,0);
+  }
+  24% {
+    transform: translate3d(6px,-4px,0);
+  }
+  32% {
+    transform: translate3d(6px,0px,0);
+  }
+  44% {
+    transform: translate3d(-4px,-6px,0);
+  }
+  62% {
+    transform: translate3d(0px,-4px,0);
+  }
+  73% {
+    transform: translate3d(-8px,6px,0);
+  }
+  84% {
+    transform: translate3d(-4px,0px,0);
+  }
+  100% {
+    transform: translate3d(6px,6px,0); 
+  }
+}
+
+
+/*  **********************************  */
+/*    Media query : max-width: 920px    */
+/*  **********************************  */
+@media all and (max-width: 920px) {
+  .banner img {
+  width: 70%;
+}
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+.banner  {
+  min-height: 600px !important;
+  height: auto !important;
+  width: 100vw
+}
+
+.banner .banner__video {
+  opacity: 0; 
+}
+
+.banner__background {
+  opacity: 1;
+  min-width: 1200px !important;
+}
+
+.banner img {
+  width: 80%;
+}
+}
+
+/* Parallax */
+.logo {
+  background-image: url('/assets/images/logo.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 300px; /* Ajustez la hauteur selon vos besoins */
+}
+
+
+/*  **********************************  */
+/*    Media query : max-width: 580px    */
+/*  **********************************  */
+@media all and (max-width: 580px) {
+.banner  {
+  min-height: 400px !important;
+  /* height: 400px !important; */
+}
+
+.banner .banner__video {
+  opacity: 0; 
+}
+
+.banner__background {
+  opacity: 1;
+  min-width: 900px !important;
+}
+}
+
+
+/* FLEURS - page principale */
+
+/* définition du positionnement initial */
+
+/* Sunflower.png */
+.story h2::after,
+.site-footer::before {
+	width: 154px;
+	height: 154px;
+}
+
+/* random_flower.png */
+#studio h2::before {
+  width: 203px;
+	height: 203px;
+}
+
+/* flower.png */
+#studio h2::after {
+  width: 109px;
+	height: 109px;
+}
+
+/* orchid.png */
+.site-footer::after {
+  width: 173px;
+  height: 173px;
+}
+
+/* Hibiscus.png */
+.story__article::after {
+	width: 188px;
+	height: 188px;
+}
+
+/* ANIM ROTATION DES FLEURS - selection des éléments */
+
+.story__article::after,
+#studio h2::before,
+.story h2::after,
+#studio h2::after,
+.site-footer::before,
+.site-footer::after,
+.nomination::before,
+.nomination::after,
+.site-footer ul::after,
+.modal ::after {
+  animation: rotate-flower var(--rotate) linear infinite;
+}
+
+@keyframes rotate-flower {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+
+/*  LIEU + NUAGE  */
+
+.story #place {
+  position:relative;
+  background-image: url("../images/background-koukaki.png");
+  z-index: -1;
+}
+
+/*  PARAMETRAGE DES TITRES H2 / H3 - ANIM  */
+
+.story > h2,
+.studio >  h2,
+#characters > h3,
+#place h3 {
+  color: transparent;
+  height: 202px;
+}
+
+.story > h2,
+.studio >  h2,
+#characters > h3 {
+  z-index: -1;
+}
+
+
+#place h3 {
+  z-index: 4;
+}
+
+.story > h2,
+.studio >  h2 {
+  width: 100%;
+}
+
+#characters > h3,
+#place h3  {
+  position: relative;
+  width: 40%;
+}
+
+.story > h2 span,
+.studio > h2 span,
+#characters span,
+#place span {
+  position: absolute;
+  color: #FFF5E9;
+  opacity: 0;
+  z-index: 4;
+}
+
+.story > h2 span,
+.studio > h2 span,
+#characters span,
+#place span {
+  top: 100px;  
+}
+
+.story #characters,
+#characters > h3 span,
+#place span {
+  width: 100%;
+}
+
+/* ANIMATION DES TITRES  */
+.animTitle {
+  animation: animTitle 0.7s 1s forwards;
+}
+
+@keyframes animTitle {
+	0% {
+    transform: translate3d(-50%, 50%, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 1;
+  }
+}
+
+/* PROPRIETES OSCARS */
+
+.oscars {  
+  position: relative;
+  padding: 150px 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.oscars__title {  
+  position: relative;
+}
+
+.oscars__title img {
+  height: 100%;
+}
+
+.oscars__title h3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 3.2rem;
+  text-align: left;
+}
+
+.oscars img {
+  height: 100%;
+}
+
+/* Mise en page des oscars */
+#oscars {
+  padding-top: 20px;
+}
+
+.oscars h3 {  
+  font-size: 2.4rem;    
+  line-height: 2.8rem;
+}
+
+#studio h2::before,
+.oscars::before,
+.oscars::after {
+  content: '';
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 1192px    */
+/*  **********************************  */
+@media all and (max-width: 1192px) {
+  .oscars h3 {
+    font-size: 2.8rem;
+    line-height: 3rem;
+  }  
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 920px    */
+/*  **********************************  */
+@media all and (max-width: 920px) {
+  h2 {
+    font-size: 3.3rem;
+  } 
+
+  .story > h2 span, 
+  .studio > h2 span {
+    width: 100%;
+  }
+
+  .story #characters {
+    margin-top: 10px !important;
+  }
+
+  #characters > h3,
+  #place h3 {
+    width: 100%;
+  }
+  
+  #oscars {
+    padding-top: 20px;
+  }
+
+  .oscars h3 {  
+    font-size: 2.4rem;    
+    line-height: 2.8rem;
+  }
+  
+  #studio h2::before,
+  .oscars::before,
+  .oscars::after {
+    content: '';
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+  h2 {
+    font-size: 3rem;
+  } 
+
+  .oscars h3 {  
+    font-size: 1.9rem;    
+    line-height: 2.5rem;
+  }
+
+  #characters span,
+  #place span {
+    top: 100px;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 480px    */
+/*  **********************************  */
+@media all and (max-width: 480px) {
+  h2 {
+    font-size: 2.4rem;
+  } 
+
+  h3 {
+    font-size: 2rem;
+  }  
+  
+    #characters span,
+    #place span {
+      top: 100px;
+    }
+
+  .oscars__title {
+    height:200px
+  }
+
+  .oscars h3 {  
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+
+  .oscars__logo {
+    max-width: 70%;
+  }
+}
+
