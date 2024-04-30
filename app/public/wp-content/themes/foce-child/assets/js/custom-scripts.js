@@ -68,3 +68,28 @@ console.log("Démarrage du script !");
   observer.observe(document.querySelector(".studio__title"));
   // A ajouter plus tard - observer.observe(document.querySelector(".characters__title"));
   observer.observe(document.querySelector(".place__title"));
+
+// EFFET DE PARALLAX DU LOGO
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionnez votre logo
+    var logo = document.querySelector('.banner__logo');
+
+    // Fonction pour ajuster la position du logo en fonction du défilement
+    function adjustLogoPosition() {
+        // Obtenez la position de défilement actuelle
+        var scrollPosition = window.scrollY;
+
+        // Définissez la position maximale du logo
+        var maxLogoPosition = document.querySelector('.banner').offsetHeight - logo.offsetHeight;
+
+        // Ajustez la position du logo en fonction du défilement
+        if (scrollPosition < maxLogoPosition) {
+            logo.style.top = scrollPosition + 'px';
+        } else {
+            logo.style.top = maxLogoPosition + 'px';
+        }
+    }
+
+    // Écoutez l'événement de défilement de la page et ajustez la position du logo
+    window.addEventListener('scroll', adjustLogoPosition);
+});
