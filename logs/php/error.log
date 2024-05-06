@@ -1,0 +1,20 @@
+[03-May-2024 13:15:57 UTC] PHP Warning:  Undefined variable $characters_query in C:\Users\verci\Local Sites\koukaki\app\public\wp-content\themes\foce-child\front-page.php on line 32
+[03-May-2024 13:15:57 UTC] PHP Fatal error:  Uncaught Error: Call to a member function have_posts() on null in C:\Users\verci\Local Sites\koukaki\app\public\wp-content\themes\foce-child\front-page.php:32
+Stack trace:
+#0 C:\Users\verci\Local Sites\koukaki\app\public\wp-includes\template-loader.php(106): include()
+#1 C:\Users\verci\Local Sites\koukaki\app\public\wp-blog-header.php(19): require_once('C:\\Users\\verci\\...')
+#2 C:\Users\verci\Local Sites\koukaki\app\public\index.php(17): require('C:\\Users\\verci\\...')
+#3 {main}
+  thrown in C:\Users\verci\Local Sites\koukaki\app\public\wp-content\themes\foce-child\front-page.php on line 32
+[03-May-2024 13:19:23 UTC] PHP Warning:  Undefined variable $characters_query in C:\Users\verci\Local Sites\koukaki\app\public\wp-content\themes\foce-child\template-parts\characters-slider.php on line 18
+[03-May-2024 13:19:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function have_posts() on null in C:\Users\verci\Local Sites\koukaki\app\public\wp-content\themes\foce-child\template-parts\characters-slider.php:18
+Stack trace:
+#0 C:\Users\verci\Local Sites\koukaki\app\public\wp-includes\template.php(812): require()
+#1 C:\Users\verci\Local Sites\koukaki\app\public\wp-includes\template.php(745): load_template('C:\\Users\\verci\\...', false, Array)
+#2 C:\Users\verci\Local Sites\koukaki\app\public\wp-includes\general-template.php(206): locate_template(Array, true, false, Array)
+#3 C:\Users\verci\Local Sites\koukaki\app\public\wp-content\themes\foce-child\front-page.php(28): get_template_part('template-parts/...', 'slider')
+#4 C:\Users\verci\Local Sites\koukaki\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\verci\\...')
+#5 C:\Users\verci\Local Sites\koukaki\app\public\wp-blog-header.php(19): require_once('C:\\Users\\verci\\...')
+#6 C:\Users\verci\Local Sites\koukaki\app\public\index.php(17): require('C:\\Users\\verci\\...')
+#7 {main}
+  thrown in C:\Users\verci\Local Sites\koukaki\app\public\wp-content\themes\foce-child\template-parts\characters-slider.php on line 18

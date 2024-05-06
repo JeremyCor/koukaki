@@ -1,9 +1,65 @@
 
 console.log("Démarrage du script !");
 
-// Différer le lancement du script => ne se lance qu'une fois que tout le HTML a été chargé
+// Différe le lancement du script => ne se lance qu'une fois que tout le HTML a été chargé
+
+document.addEventListener("DOMContentLoaded", function () {
+  monScript();
+});
+
+function monScript() {
+  // console.log("HTML prêt !");
+
+  // Gestion de la fermeture et de l'ouverture de la modale avec jQuery
+  (function($) {
+      $(".modal-open").click(function () {
+      console.log("modal-trigger cliqué");
+      $(".modal__content").animate({ height: "toggle", opacity: "toggle" }, 1000);
+      $(".modal__content").toggleClass("open");
+      $(".modal__burger").toggleClass("close");
+    });
+    $("a").click(function () {
+      if ($(".modal__content").hasClass("open")) {
+        $(".modal__content").animate(
+          { height: "toggle", opacity: "toggle" },
+          1000
+        );
+        $(".modal__content").removeClass("open");
+        $(".modal__burger").removeClass("close");
+      }
+    });    
+  })(jQuery);
+}
+
+   // Initialize Swiper
+   var swiper = new Swiper('.swiper-container', {
+    spaceBetween: 60,
+    speed: 1000,
+    autoplay: {
+        delay: 250,
+    },
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 3,
+    coverflowEffect: {
+        rotate: 60,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+    },
+    autoplay: {
+        delay: 2500,
+        // disableOnInteraction: false,
+    },
+
+});
+
 
   let posX = 0;
+  let mouveCloud = false;
 
   const root = document.documentElement;
   const place = document.querySelector("#place");
@@ -63,26 +119,26 @@ console.log("Démarrage du script !");
   observer.observe(document.querySelector(".story"));
   observer.observe(document.querySelector(".studio"));
   observer.observe(document.querySelector(".oscars"));
-  observer.observe(document.querySelector(".site-footer"));
   observer.observe(document.querySelector(".story__title"));
   observer.observe(document.querySelector(".studio__title"));
-  // A ajouter plus tard - observer.observe(document.querySelector(".characters__title"));
+  observer.observe(document.querySelector(".characters__title"));
   observer.observe(document.querySelector(".place__title"));
+
 
 // EFFET DE PARALLAX DU LOGO
   document.addEventListener('DOMContentLoaded', function() {
-    // Sélectionnez votre logo
+    // Sélectionne le logo
     var logo = document.querySelector('.banner__logo');
 
     // Fonction pour ajuster la position du logo en fonction du défilement
     function adjustLogoPosition() {
-        // Obtenez la position de défilement actuelle
+        // Obtient la position de défilement actuelle
         var scrollPosition = window.scrollY;
 
-        // Définissez la position maximale du logo
+        // Définit la position maximale du logo
         var maxLogoPosition = document.querySelector('.banner').offsetHeight - logo.offsetHeight;
 
-        // Ajustez la position du logo en fonction du défilement
+        // Ajuste la position du logo en fonction du défilement
         if (scrollPosition < maxLogoPosition) {
             logo.style.top = scrollPosition + 'px';
         } else {
@@ -90,6 +146,15 @@ console.log("Démarrage du script !");
         }
     }
 
-    // Écoutez l'événement de défilement de la page et ajustez la position du logo
+    // Écoute l'événement de défilement de la page et ajustez la position du logo
     window.addEventListener('scroll', adjustLogoPosition);
 });
+
+ // Contrôle si on scroll sur la fenêtre
+ window.addEventListener("scroll", () => {
+      // On bouge les 2 nuages en fonction du scroll
+      posX = Math.round(0 - (window.scrollY - place.offsetTop - 200));
+      if (posX <= 0 && posX > -400) {
+        root.style.setProperty("--posX", posX + "px");
+      }     
+  });
