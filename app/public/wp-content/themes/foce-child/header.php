@@ -29,19 +29,31 @@
 
         <header id="masthead" class="site-header">
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </button>
                 <ul>
-                    <li><a href="#story">Histoire</a></li>
-                    <li><a href="#characters">Personnages</a></li>
-                    <li class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-                            rel="home"><?php bloginfo('name'); ?></a></li>
-                    <li><a href="#place">Lieu</a></li>
-                    <li><a href="#studio">Studio Koukaki</a></li>
+                    <li class="site-title "><a href="<?php echo (get_site_url())?>" rel="home">Fleurs d'oranger & chats errants</a></li>
                 </ul>
+
+                <div id="modal" class="modal" aria-controls="primary-menu" aria-expanded="false">
+                    <button class="modal__burger modal-open">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </button>
+                    <div class="modal__content">
+                        <img class="modal__content--logo" src="<?php echo get_theme_file_uri() . '/assets/images/logo.png'; ?>" alt="">
+                        <ul>
+                            <li class="modal__content--story flower cat"><a href="#story">Histoire</a></li>
+                            <li class="modal__content--characters flower cat"><a href="#characters">Personnages</a></li>
+                            <li class="modal__content--place flower cat"><a href="#place">Lieu</a></li>
+                            <li class="modal__content--studio flower cat"><a href="#studio">Studio Koukaki</a></li>
+                        </ul>
+
+                        <div class="modal__content--footer modal-trigger flower cat">
+                            <a href="#">STUDIO KOUKAKI</a>
+                        </div>
+                    </div>
+                </div>
+                
 
             </nav><!-- #site-navigation -->
         </header><!-- #masthead -->

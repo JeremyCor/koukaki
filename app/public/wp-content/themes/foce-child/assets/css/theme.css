@@ -11,10 +11,213 @@
   position: relative;
 }
 
-main {
+
+/* Fenêtre de navigation */
+.main-navigation.toggled ul {
+	display: flex !important;
+}
+
+#site-navigation {
+  position: relative;
+}
+
+.modal__burger {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 8px;
+  width: 40px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  right: 5em;
+  cursor: pointer;  
+}
+
+.modal__burger .line {
+  height: 2px;
+  background-color: #000;
+  display: block;
+  width: 100%;
+  margin: 0;
+  transition: all .3s ease-in-out;
+}
+
+/* Création du bouton pour fermer - mouvement des lignes du burger */
+.modal__burger.close .line:nth-child(2) {
+  opacity: 0;
+}
+
+.modal__burger.close .line:first-child {
+  transform: rotate(45deg) translate3d(8px, 6px, 0);
+}
+
+.modal__burger.close  span.line:last-child {
+  transform: rotate(-45deg) translate3d(8px, -6px, 0);
+}
+
+/* MODALE */
+.modal {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.4rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
 }
 
+.modal h2,
+.modal li > a {
+  font-size: 3.1rem;
+}
+
+.modal .modal__content {
+  position: relative;
+  width: 100%;
+  height: 91vh;
+  background: #FFF5E9;
+  font-size: 3em;
+  display: none;
+}
+
+.modal__content--logo {
+  margin: 40px;
+  width: 154px;
+  filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+  -moz-filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+}
+
+.modal__content ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  gap: 1em;
+}
+
+.modal__content li > a:hover {
+  filter: drop-shadow(0px 0px 5px #ff5c00);
+  -webkit-filter: drop-shadow(0px 0px 5px #ff5c00);
+  -moz-filter: drop-shadow(0px 0px 5px #ff5c00);
+}
+
+.modal__content--footer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+}
+
+
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) { 
+  .main-navigation {
+    height: 80px;
+  }
+
+  .main-navigation ul {
+		display: flex !important;
+	}
+}
+
+/* ANIMATONS DES CHATS - menu modal */
+
+.modal__content--story::before {
+  content: url("../images/Kawaneko.png");
+  position: absolute;
+  right: 20em;
+  bottom: -3em;
+  animation: float 7s 100ms infinite ease-in-out; 
+}
+
+.modal__content--place::before {
+  content: url("../images/Jaakuna-1.png");
+  position: absolute;
+  left: 20em;
+  top: -4em;  
+  animation: float 6s 200ms infinite ease-in-out; 
+}
+
+.modal__content--footer::before {
+  content: url("../images/Orenjiiro-1.png");
+  position: absolute;
+  right: 30em;
+  bottom: 0;  
+  animation: float 5s 300ms infinite ease-in-out; 
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+  .modal__content--story::before,
+  .modal__content--place::before,
+  .modal__content--footer::before {
+    content: '';
+  }
+}
+
+/* ANIMATIONS DES FLEURS - menu modal  */
+
+.modal__content::after{
+  content: url("../images/orchid.png");
+  position: absolute;
+  left: -4em;
+  top: 3em;
+  transform: scale(0.8);
+}
+
+.modal__content--story::after {
+  content: url("../images/Sunflower.png");
+  position: absolute;
+  left: 24em;
+  bottom: 0em;
+}
+
+.modal__content--characters::after {
+  content: url("../images/random_flower.png");
+  position: absolute;
+  left: 54em;
+  top: -2em;
+  transform: scale(0.3);
+}
+
+.modal__content--place::after {
+  content: url("../images/flower.png");
+  position: absolute;
+  right: 28em;
+  top: -2em;
+  transform: scale(0.5);
+}
+
+.modal__content--footer::after {
+  content: url("../images/hibiscus_footer.png");
+  position: absolute;
+  left: 500px;
+  bottom: -20.5em;
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+  .modal__content::after,
+  .modal__content--story::after,
+  .modal__content--characters::after,
+  .modal__content--place::after,
+  .modal__content--footer::after {
+    content: '';
+  }
+}
 /* BANNIERE */
 
 .banner {
@@ -53,58 +256,6 @@ main {
   z-index: 10;
   opacity: 1;
   animation: move-up 3s 300ms both, float 5s 2s infinite ease-in-out;  
-}
-
-/*  **********************************  */
-/*    Media query : max-width: 920px    */
-/*  **********************************  */
-@media all and (max-width: 920px) {
-  .banner img {
-  width: 70%;
-}
-}
-
-/*  **********************************  */
-/*    Media query : max-width: 700px    */
-/*  **********************************  */
-@media all and (max-width: 700px) {
-.banner  {
-  min-height: 600px !important;
-  height: auto !important;
-  width: 100vw
-}
-
-.banner .banner__video {
-  opacity: 0; 
-}
-
-.banner__background {
-  opacity: 1;
-  min-width: 1200px !important;
-}
-
-.banner img {
-  width: 80%;
-}
-}
-
-/*  **********************************  */
-/*    Media query : max-width: 580px    */
-/*  **********************************  */
-@media all and (max-width: 580px) {
-.banner  {
-  min-height: 400px !important;
-  /* height: 400px !important; */
-}
-
-.banner .banner__video {
-  opacity: 0; 
-}
-
-.banner__background {
-  opacity: 1;
-  min-width: 900px !important;
-}
 }
 
 
@@ -202,33 +353,33 @@ main {
 }
 }
 
-/* Parallax */
+/*  **********************************  */
+/*    Media query : max-width: 580px    */
+/*  **********************************  */
+@media all and (max-width: 580px) {
+  .banner  {
+    min-height: 400px !important;
+    /* height: 400px !important; */
+  }
+
+  .banner .banner__video {
+    opacity: 0; 
+  }
+
+  .banner__background {
+    opacity: 1;
+    min-width: 900px !important;
+  }
+}
+
+
+/* PARALLAX */
 .logo {
   background-image: url('/assets/images/logo.png');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  height: 300px; /* Ajustez la hauteur selon vos besoins */
-}
-
-
-/*  **********************************  */
-/*    Media query : max-width: 580px    */
-/*  **********************************  */
-@media all and (max-width: 580px) {
-.banner  {
-  min-height: 400px !important;
-  /* height: 400px !important; */
-}
-
-.banner .banner__video {
-  opacity: 0; 
-}
-
-.banner__background {
-  opacity: 1;
-  min-width: 900px !important;
-}
+  height: 300px;
 }
 
 
@@ -290,6 +441,58 @@ main {
   }
 }
 
+.modal .modal__content--footer::after  {
+  animation: rotate-flower-08 var(--rotate) linear infinite;
+}
+
+@keyframes rotate-flower-08 {
+  from {
+      transform: rotate(0deg) scale(0.8);
+  }
+  to {
+      transform: rotate(360deg) scale(0.8);
+  }
+}
+
+.modal .modal__content--story::before  {
+  animation: rotate-flower-07 var(--rotate) linear infinite;
+}
+
+@keyframes rotate-flower-07 {
+  from {
+      transform: rotate(0deg) scale(0.7);
+  }
+  to {
+      transform: rotate(360deg) scale(0.7);
+  }
+}
+
+.modal .modal__content--place::after {
+  animation: rotate-flower-05 var(--rotate) linear infinite;
+}
+
+@keyframes rotate-flower-05 {
+  from {
+      transform: rotate(0deg) scale(0.5);
+  }
+  to {
+      transform: rotate(360deg) scale(0.5);
+  }
+}
+
+.modal .modal__content--characters::after {
+  animation: rotate-flower-03 var(--rotate) linear infinite;
+}
+
+@keyframes rotate-flower-03 {
+  from {
+      transform: rotate(0deg) scale(0.3);
+  }
+  to {
+      transform: rotate(360deg) scale(0.3);
+  }
+}
+
 
 /*  LIEU + NUAGE  */
 
@@ -303,7 +506,7 @@ main {
 #place .place--little_cloud {
   position: absolute;
   filter: blur(12px);
-  -webkit-filter: blur(12px);
+  -webkit-filter: blur(12px); /* précautions de comptabilité */
   -moz-filter: blur(12px);
   z-index: 2;
 }
@@ -412,7 +615,6 @@ main {
 
 .swiper-container {
   width: 100%;
-  /* height: 420px; */
   opacity: 1;
   margin-bottom: 7em;  
   overflow: hidden;
@@ -433,9 +635,7 @@ main {
 
 .swiper-slide figure {
   display: block;
-  /* max-height: 400px ; */
   width: 100%;
-  /* height: 100%; */
   object-fit: cover;  
 }
 
